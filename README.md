@@ -2,6 +2,8 @@
 
 Utility to extract firmware update packages for Galaxy Buds devices into raw firmware binaries and built-in mp3 audio resources.
 
+An official firmware image is required. You can pull one directly from Samsung's FOTA servers.
+
 Sample output:
 ```
 Analysing binary...
