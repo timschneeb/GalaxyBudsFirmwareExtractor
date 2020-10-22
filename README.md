@@ -6,26 +6,50 @@ Sample output:
 ```
 Analysing binary...
 
-[FW Binary] └─┐ "FOTA_R170XXU0ATD3.bin" Magic=cafecafe TotalSize=1461534 EntryCount=7
-[FW Entry]    ├─ ID=1 CRC32=0xae08fd4b Position=124 Size=187794
-[FW Entry]    ├─ ID=6 CRC32=0x601a8f15 Position=187918 Size=265092
-[FW Entry]    ├─ ID=7 CRC32=0x2369e8dd Position=453010 Size=82324
-[FW Entry]    ├─ ID=10 CRC32=0xdabc8347 Position=535334 Size=126756
-[FW Entry]    ├─ ID=11 CRC32=0x8a562b18 Position=662090 Size=42332
-[FW Entry]    ├─ ID=12 CRC32=0xac4daa1c Position=704422 Size=113620
-[FW Entry]    └─ ID=20 CRC32=0x2144df1c Position=818042 Size=643488
+Firmware archive "FOTA_R175XXU0ATH7.bin" Magic=cafecafe TotalSize=1444388
+│
+├─┐  [Binary segments] SegmentCount=7
+│ ├─ ID=1	Offset=0x007c	Size=180122	CRC32=0xf1ad0d6f
+│ ├─ ID=6	Offset=0x2c016	Size=368740	CRC32=0xc98f567a
+│ ├─ ID=7	Offset=0x8607a	Size=104516	CRC32=0x72b7396e
+│ ├─ ID=10	Offset=0x9f8be	Size=154260	CRC32=0xf4f10cc2
+│ ├─ ID=11	Offset=0xc5352	Size=58124	CRC32=0x391695ef
+│ ├─ ID=12	Offset=0xd365e	Size=147232	CRC32=0xeffbc7ed
+│ └─ ID=20	Offset=0xf757e	Size=431266	CRC32=0x2144df1c
+│
+├─┐  [Audio segments]
+│ ├─ ID=0	Offset=0x1009bb	Size=16896	Bitrate=128000	Samplerate=48000
+│ ├─ ID=1	Offset=0x1055c9	Size=16896	Bitrate=128000	Samplerate=48000
+│ ├─ ID=2	Offset=0x109869	Size=12672	Bitrate=128000	Samplerate=48000
+│ ├─ ID=3	Offset=0x10ca09	Size=3264	Bitrate=32000	Samplerate=48000
+│ ├─ ID=4	Offset=0x10d6e9	Size=4320	Bitrate=32000	Samplerate=48000
+│ ├─ ID=5	Offset=0x10e7e9	Size=10056	Bitrate=32000	Samplerate=48000
+│ ├─ ID=6	Offset=0x110f51	Size=1584	Bitrate=32000	Samplerate=48000
+│ ├─ ID=7	Offset=0x1115a1	Size=5880	Bitrate=128000	Samplerate=48000
+│ ├─ ID=8	Offset=0x112cb9	Size=4680	Bitrate=32000	Samplerate=48000
+│ ├─ ID=9	Offset=0x113f21	Size=3888	Bitrate=32000	Samplerate=48000
+│ ├─ ID=10	Offset=0x114e71	Size=2496	Bitrate=32000	Samplerate=48000
+│ ├─ ID=11	Offset=0x115851	Size=17496	Bitrate=32000	Samplerate=48000
+│ ├─ ID=12	Offset=0x119cc9	Size=7920	Bitrate=32000	Samplerate=48000
+│ ├─ ID=13	Offset=0x11bbd9	Size=6552	Bitrate=32000	Samplerate=48000
+│ ├─ ID=14	Offset=0x11d591	Size=7872	Bitrate=32000	Samplerate=48000
+│ ├─ ID=15	Offset=0x11f471	Size=14208	Bitrate=32000	Samplerate=48000
+│ ├─ ID=16	Offset=0x122c11	Size=3240	Bitrate=32000	Samplerate=48000
+│ ├─ ID=17	Offset=0x1238d9	Size=16704	Bitrate=192000	Samplerate=48000
+│ ├─ ID=18	Offset=0x127a39	Size=19008	Bitrate=192000	Samplerate=48000
+│ ├─ ID=19	Offset=0x12c499	Size=23040	Bitrate=192000	Samplerate=48000
+│ ├─ ID=20	Offset=0x131eb9	Size=8424	Bitrate=32000	Samplerate=48000
+│ ├─ ID=21	Offset=0x134a93	Size=20480	Bitrate=128000	Samplerate=44100
+│ ├─ ID=22	Offset=0x139b33	Size=3216	Bitrate=32000	Samplerate=48000
+│ ├─ ID=23	Offset=0x13a7e3	Size=3048	Bitrate=32000	Samplerate=48000
+│ ├─ ID=24	Offset=0x13b3eb	Size=3120	Bitrate=32000	Samplerate=48000
+│ ├─ ID=25	Offset=0x13c03b	Size=3024	Bitrate=32000	Samplerate=48000
+│ ├─ ID=26	Offset=0x13cc2b	Size=5064	Bitrate=32000	Samplerate=48000
+│ └─ [EOF] SegmentCount=27
 
-Extracting into raw firmware image...
+Extracting binary segments into raw firmware image... Done
+Extracting audio segments as MP3 files... Done
 
-[FW Binary] Extracting segment #1 from offset 0x7c to 0x2de0e
-[FW Binary] Extracting segment #6 from offset 0x2de0e to 0x6e992
-[FW Binary] Extracting segment #7 from offset 0x6e992 to 0x82b26
-[FW Binary] Extracting segment #10 from offset 0x82b26 to 0xa1a4a
-[FW Binary] Extracting segment #11 from offset 0xa1a4a to 0xabfa6
-[FW Binary] Extracting segment #12 from offset 0xabfa6 to 0xc7b7a
-[FW Binary] Extracting segment #20 from offset 0xc7b7a to 0x164d1a
-
-Raw firmware image has been extracted to '/home/tim/FOTA_R170XXU0ATD3.raw.bin'.
-You can view it in a disassembler.
+Data has been written to '/home/tim/FOTA_R175XXU0ATH7_out'
 
 ```
