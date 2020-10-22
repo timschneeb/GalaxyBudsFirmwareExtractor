@@ -18,22 +18,38 @@ public class Main {
         System.out.println();
 
         File inputFile = new File(args[0]);
-        FOTABinary bin = new FOTABinary();
-        boolean read_success = bin.readFirmware(inputFile);
-        if(!read_success)
+        FOTABinary bin = new FOTABinary(inputFile);
+
+        if(!bin.readFirmware())
             exit(1);
 
-        System.out.println();
-        System.out.println("Extracting into raw firmware image...");
-        System.out.println();
-
-        File outputFile = new File(inputFile.getParentFile().getPath() + "/" + inputFile.getName().split("[.]")[0] + ".raw.bin");
-        boolean write_success = bin.writeRawBinary(outputFile);
-        if(!write_success)
+        if(!bin.readAudioSegments())
             exit(1);
 
+        String baseName = inputFile.getName().split("[.]")[0];
+        String outputPath = inputFile.getParentFile().getPath() + "/" + baseName + "_out";
+        File dir = new File(outputPath);
+        if (!dir.exists()){
+            //noinspection ResultOfMethodCallIgnored
+            dir.mkdirs();
+        }
+
         System.out.println();
-        System.out.println("Raw firmware image has been extracted to '" + outputFile.toString() + "'.\n" +
-                "You can view it in a disassembler.");
+        System.out.print("Extracting binary segments into raw firmware image... ");
+
+        File outputRawBinFile = new File(outputPath + "/" + baseName+ ".raw.bin");
+        if(!bin.writeRawBinary(outputRawBinFile))
+            exit(1);
+
+        System.out.println("Done");
+
+        System.out.print("Extracting audio segments as MP3 files... ");
+        if(!bin.writeAudioSegments(outputPath))
+            exit(1);
+
+        System.out.println("Done");
+
+        System.out.println();
+        System.out.println("Data has been written to '" + outputPath + "'");
     }
 }

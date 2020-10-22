@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class FOTAEntry {
-    private static final String TAG = "[FW Entry] ";
     private long mCrc32;
     private long mEntry_pos;
     private long mEntry_size;
@@ -26,8 +25,11 @@ public class FOTAEntry {
                 int i5 = i4 + 4;
                 this.mEntry_size = ((((long) bArr[i5 + 1]) & 255) << 8) | ((((long) bArr[i5 + 3]) & 255) << 24) | ((((long) bArr[i5 + 2]) & 255) << 16) | (((long) bArr[i5]) & 255);
 
-                String box = i < (count - 1) ? "   ├─ " : "   └─ ";
-                System.out.println(TAG + box + "ID=" + this.mId + " CRC32=0x" + String.format("%x", this.mCrc32) + " Position=" + this.mEntry_pos + " Size=" + this.mEntry_size);
+                String box = i < (count - 1) ? "│ ├─ " : "│ └─ ";
+                System.out.println(box + "ID=" + this.mId +
+                        "\tOffset=0x" + String.format("%04x", this.mEntry_pos) +
+                        "\tSize=" + this.mEntry_size +
+                        "\tCRC32=0x" + String.format("%04x", this.mCrc32));
                 fileInputStream2.close();
             } catch (Exception e) {
                 e.printStackTrace();
