@@ -1,6 +1,6 @@
-# GalaxyBuds FirmwareExtractor
+# Galaxy Buds Firmware Extractor
 
-Utility to extract firmware update packages for Galaxy Buds devices into raw firmware binaries for use with disassemblers.
+Utility to extract firmware update packages for Galaxy Buds devices into raw firmware binaries and built-in mp3 audio resources.
 
 Sample output:
 ```
