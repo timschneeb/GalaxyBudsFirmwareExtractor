@@ -67,7 +67,7 @@ public class Mp3Detection {
                             "\tBitrate=" + segment.getBitrate() +
                             "\tSamplerate=" + segment.getSamplerate());
 
-                    try (FileOutputStream fos = new FileOutputStream("/home/tim/out_" + segment.getIndex() + ".mp3")) {
+                    try (FileOutputStream fos = new FileOutputStream(inputFile.getAbsoluteFile().getParentFile().getPath() + "/out_" + segment.getIndex() + ".mp3")) {
                         fos.write(Utils.toPrimitiveBytes(lastMp3Bytes));
                     } catch (IOException e) {
                         e.printStackTrace();
