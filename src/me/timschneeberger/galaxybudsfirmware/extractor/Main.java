@@ -27,7 +27,7 @@ public class Main {
             exit(1);
 
         String baseName = inputFile.getName().split("[.]")[0];
-        String outputPath = inputFile.getParentFile().getPath() + "/" + baseName + "_out";
+        String outputPath = inputFile.getAbsoluteFile().getParentFile().getPath() + "/" + baseName + "_out";
         File dir = new File(outputPath);
         if (!dir.exists()){
             //noinspection ResultOfMethodCallIgnored
